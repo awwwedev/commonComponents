@@ -11,7 +11,7 @@ import NewsCard from "./components/NewsCard.vue";
 import Category from "./components/Category.vue";
 import RealtyCard from "./components/RealtyCard.vue";
 import RealtyCard2 from "./components/RealtyCard2.vue";
-import RealtyView from "@/components/RealtyView.vue";
+import RealtyView from "../../common/src/components/RealtyView.vue";
 
 @Component({
   components: {RealtyView, RealtyCard2, RealtyCard, Category, NewsCard}
