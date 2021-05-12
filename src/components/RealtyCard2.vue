@@ -60,4 +60,6 @@ export default class RealtyCard2 extends Vue {
 @import "~@common/assets/stylus/blocks/yandex-map-balloon.styl";
 @import "~@common/assets/stylus/common.styl";
 @import "~@common/assets/stylus/button.styl";
+.balloon
+  line-height normal
 </style>
