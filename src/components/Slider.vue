@@ -9,7 +9,7 @@
         v-if="images.length"
     >
       <ibg v-for="(img, index) in images" :key="index" v-if="index === currentImageIndex" class="slider__img"
-           :src="imageBasePath + img"></ibg>
+           :src="imageBasePath + img" @click="$emit('selectImage', img)"></ibg>
     </transition>
     <div class="slider__nav nav">
       <ul class="nav__list" v-if="images.length">

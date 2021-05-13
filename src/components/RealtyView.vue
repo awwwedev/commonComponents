@@ -1,5 +1,18 @@
 <template>
   <div class="container">
+    <Modal :show="showViewPhoto" @close="showViewPhoto = false">
+      <template #full-content>
+        <div class="preview-img__wrapper">
+          <ibg class="preview-img" :src="imageBasePath + viewImage" alt=""/>
+        </div>
+      </template>
+      <template #header>
+       <span></span>
+      </template>
+      <template #full-footer>
+       <span></span>
+      </template>
+    </Modal>
     <nav class="view-object__nav nav">
       <ul class="nav__list">
         <li class="nav_item">
@@ -15,6 +28,7 @@
       <div class="view-object__col">
         <Slider
             :images="viewRealty.photo"
+            @selectImage="onSelectedImage"
         />
       </div>
       <div class="view-object__col view-object__object-info object-info">
@@ -56,16 +70,26 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from "vue-property-decorator";
+import {Component, Inject, Prop, Vue} from "vue-property-decorator";
 import Realty from "../models/Realty";
 import Slider from "../components/Slider.vue";
+import Modal from "../components/Modal.vue";
+import Ibg from "../components/common/Ibg.vue";
 
 @Component({
-  components: {Slider}
+  components: {Ibg, Modal, Slider}
 })
 export default class RealtyView extends Vue {
   @Prop({ required: true, type: Object }) viewRealty!: Realty
+  showViewPhoto = false
+  viewImage = null as null | string
+  @Inject('imageBasePath') imageBasePath!: string
 
+
+  onSelectedImage (image: string): void {
+    this.showViewPhoto = true
+    this.viewImage = image
+  }
 }
 </script>
 
@@ -75,6 +99,16 @@ export default class RealtyView extends Vue {
 @import "~@common/assets/stylus/button.styl";
 @import "~@common/assets/stylus/null.styl";
 @import "~@common/assets/stylus/fonts.styl";
+
+.preview-img
+  padding  0 0 100% 0
+  display block
+  width 500px
+
+  &__wrapper
+    width 100%
+    margin 10px
+
 
 .view-object
   font-family Inter-Regular
