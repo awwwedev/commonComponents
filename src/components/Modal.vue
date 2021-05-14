@@ -72,7 +72,8 @@ contentPaddingY = 35
 .modal
     background-color white
     margin 0 auto
-    max-width 600px
+    width 600px
+
     @media (max-width 600px)
         width 100%
 

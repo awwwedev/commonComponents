@@ -137,7 +137,9 @@ export default class Slider extends Vue {
     z-index 1
     width 66%
     margin 0 auto
-    padding 0 0 67% 0
+    padding 0 0 67%
+    cursor pointer
+
     @media (max-width 600px)
       width 90%
     @media (max-width 1000px)

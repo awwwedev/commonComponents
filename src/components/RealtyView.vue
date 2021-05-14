@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Modal :show="showViewPhoto" @close="showViewPhoto = false">
-      <template #full-content>
+      <template #content>
         <div class="preview-img__wrapper">
           <ibg class="preview-img" :src="imageBasePath + viewImage" alt=""/>
         </div>
@@ -103,11 +103,11 @@ export default class RealtyView extends Vue {
 .preview-img
   padding  0 0 100% 0
   display block
-  width 500px
+  width 100%
+  height 100%
 
   &__wrapper
     width 100%
-    margin 10px
 
 
 .view-object
