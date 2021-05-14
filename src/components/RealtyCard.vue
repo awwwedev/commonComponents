@@ -30,9 +30,10 @@
 <script lang="ts">
 import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
 import $ from 'jquery'
+import Ibg from "../components/common/Ibg.vue";
 
 @Component({
-  components: {},
+  components: {Ibg},
   props: {
     area: {
       type: Number,
@@ -138,6 +139,7 @@ export default class Item extends Vue {
   overflow hidden
   font-size 16px
   font-family Inter-Regular
+  line-height normal
 
   &__img
     width 100%
