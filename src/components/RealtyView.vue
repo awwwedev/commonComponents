@@ -100,6 +100,10 @@ export default class RealtyView extends Vue {
 @import "~@common/assets/stylus/null.styl";
 @import "~@common/assets/stylus/fonts.styl";
 
+
+.title
+  margin-bottom 20px
+
 .preview-img
   padding  0 0 100% 0
   display block
@@ -148,7 +152,7 @@ export default class RealtyView extends Vue {
   padding-top 55px
 
   &__name
-    margin-bottom 30px
+    margin-bottom 20px
     font-size 30px
 
   &__description
