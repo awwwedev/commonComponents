@@ -5,7 +5,7 @@
       <ibg :src="imgPath" class="news__img"/>
       <div class="news__name" ref="name">
         <div class="news__name-value" ref="name-value">
-          <span>{{ name + (name.length > 65 ? '...' : '') }}</span>
+          <span>{{ slicedName + (name.length > 65 ? '...' : '') }}</span>
         </div>
       </div>
     </div>
@@ -38,6 +38,10 @@ export default class NewsCard extends Vue {
     this.oldHeight = $(this.refName).height() as number
   }
 
+  get slicedName (): string {
+    return this.name.slice(0, 75)
+  }
+
   @Watch('isHovered')
   watchIsHovered (val: boolean): void {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
@@ -60,7 +64,7 @@ export default class NewsCard extends Vue {
               $(this)
                   .find('.news__name-value')
                   .addClass('news__name-value_big').animate({ opacity: 1 }, 400)
-                  .find('span').text(_this.descriptionValue.slice(0, 65) + (_this.descriptionValue.length > 65 ? '...' : ''))
+                  .find('span').text(_this.name.slice(0, 85) + (_this.descriptionValue.length > 85 ? '...' : ''))
             }
           })
     } else {
@@ -81,7 +85,7 @@ export default class NewsCard extends Vue {
               setTimeout(() => {
                 $(this).find('.news__name-value')
                     .removeClass('news__name-value_big').animate({ opacity: 1 }, 200)
-                    .find('span').text(_this.name.slice(0, 65) + (_this.name.length > 65 ? '...' : ''))
+                    .find('span').text(_this.slicedName + (_this.name.length > 65 ? '...' : ''))
               }, 200)
             }
           })
