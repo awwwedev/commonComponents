@@ -3,7 +3,7 @@
     <img class="balloon__img" :src="imgPath" alt="">
     <h3 class="balloon__name">{{ name }}</h3>
     <span class="balloon__area">Площадь {{ area }} м2</span>
-    <p class="balloon__desc">{{ descriptionValue }}</p>
+    <p class="balloon__desc">{{ description }}</p>
     <div class="balloon__footer">
       <span></span>
       <div class="balloon__price-wrapper">
@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import {Component, Prop, Ref, Vue} from "vue-property-decorator";
-import {removeHtmlTags} from "../common";
+
 
 @Component({})
 export default class RealtyCard2 extends Vue {
@@ -44,9 +44,6 @@ export default class RealtyCard2 extends Vue {
   @Prop({ required: true })
   discount!: number
 
-  get descriptionValue (): string {
-    return removeHtmlTags(this.description).slice(0, 165) + '...'
-  }
 
   onClick (): void {
     this.$router.push({name: 'viewRealty', params: {category: 'category-name', id: this.id + ''}})
