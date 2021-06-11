@@ -64,7 +64,7 @@ export default class NewsCard extends Vue {
               $(this)
                   .find('.news__name-value')
                   .addClass('news__name-value_big').animate({ opacity: 1 }, 400)
-                  .find('span').text(_this.name.slice(0, 85) + (_this.descriptionValue.length > 85 ? '...' : ''))
+                  .find('span').text(_this.content.slice(0, 120) + (_this.content.length > 120 ? '...' : ''))
             }
           })
     } else {
@@ -145,7 +145,7 @@ export default class NewsCard extends Vue {
 
       &_big
         margin 10px 10px
-        font-size 40px
+        font-size 30px
         display block
         text-align center
 
