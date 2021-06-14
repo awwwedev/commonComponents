@@ -1,6 +1,6 @@
 <template>
   <div class="category" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
-    <a class="category__link" @click="$emit('click')"></a>
+    <router-link :to="{ name: 'catalog', query: { filters: JSON.stringify({ types: [ id ] }) } }" class="category__link" @click="$emit('click')">{{ name }}</router-link>
     <div class="category__content-wrapper">
       <ibg :src="imgPath" class="category__img"/>
       <div class="category__name" ref="name">
@@ -96,6 +96,7 @@ export default class Category extends Vue {
     width 100%
     height 100%
     z-index 1
+    color rgba(0, 0, 0, 0)
 
   &__content-wrapper
     position relative

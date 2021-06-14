@@ -1,6 +1,6 @@
 <template>
   <div class="news" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
-    <a class="news__link" @click="$emit('click')"></a>
+    <router-link :to="{ name: 'news.view', params: { id } }" class="news__link">{{ name }}</router-link>
     <div class="news__content-wrapper">
       <ibg :src="imgPath" class="news__img"/>
       <div class="news__name" ref="name">
@@ -25,6 +25,7 @@ export default class NewsCard extends Vue {
   @Prop({ required: true }) name!: string
   @Prop({ required: true }) imgPath!: string
   @Prop({ required: true }) content!: string
+  @Prop({ required: true }) id!: string
   @Ref('name') refName!: HTMLElement
   @Ref('name-value') refNameValue!: HTMLElement
   isHovered = false
@@ -110,6 +111,7 @@ export default class NewsCard extends Vue {
     width 100%
     height 100%
     z-index 1
+    color rgba(0, 0, 0, 0)
 
   &__content-wrapper
     position relative

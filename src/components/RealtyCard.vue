@@ -17,7 +17,8 @@
         </div>
       </div>
     </div>
-    <router-link class="stretched-link" :to="{name: 'viewRealty', params: {category: 'category-name', 'id': this.id}}">
+    <router-link class="stretched-link realty__link" :to="{name: 'viewRealty', params: {category: 'category-name', 'id': this.id}}">
+      {{ title }}
     </router-link>
     <div v-if="discount" class="object__discount">
       <span class="object__discount-corner"></span>
@@ -130,6 +131,9 @@ export default class Item extends Vue {
 @import "~@common/assets/stylus/mixins.styl"
 @import "~@common/assets/stylus/common.styl";
 @import "~@common/assets/stylus/fonts.styl";
+
+.realty__link
+  color rgba(0, 0, 0, 0)
 
 .object
   position relative
