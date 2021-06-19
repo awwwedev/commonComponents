@@ -148,6 +148,7 @@ export default class Item extends Vue {
   &__img
     width 100%
     transition transform ease-out .5s
+    padding: 0 0 0 100%;
 
     .object.object_hovered &
       transform scale(1.1)
